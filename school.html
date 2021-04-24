@@ -1,0 +1,100 @@
+<script>
+function result()
+{
+
+    var s=stun.value
+    var r=rollno.value
+    var f=fn.value
+    var g=Gender.value
+    var k=" "
+    var m=" "
+
+
+    if (g=="Master")
+    {k="s/o"}
+    else if(g=="Miss")
+    {k="D/o"}
+
+
+    var sc=schn.value
+    var English=parseInt(en.value)
+    var Hindi=parseInt(Hn.value)
+    var Physics=parseInt(Pn.value)
+    var Chemistry=parseInt(cn.value)
+    var Math=parseInt(mn.value)
+    Total=English+Hindi+Physics+Chemistry+Math
+    per = Total/5
+    division=""
+
+    if(per>65 && per <100)
+    {division="Pass in first division"}
+    else if(per>35 && per<65)
+    {division="Pass in second division"}
+    else
+    {
+    division="Fail"
+    }
+    student=g+m+s+m+k+m+f
+    var res="<center><table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+    res+="<caption><h3>Student Result</h3></caption>"
+    res+="<tr><th><img src='cbsc.jpg'></th>"
+    res+="<th>Central Board Of Secondary Education</th></tr><br><br></table></center>"
+
+    res+="<center><table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+    res+="<tr><th>school name</th><th>"+sc+"</th><tr></table>"
+
+    res+="<table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+    res+="<tr><th>Roll No</th><th>"+r+"</th></tr></table>"
+
+    res+="<table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+    res+="<tr><th>"+student+"</th></tr></table>"
+
+     res+="<table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+     res+="<caption><h3>Marksheet</h3></caption>"
+     res+="<tr><th>code</th><th>Subject</th><th>Min</th><th>Max</th><th>Obtain Mark</th></tr><br>"
+     res+="<tr><th>E01</th><th>English</th><th>35</th><th>100</th><th>"+English+"</th></tr><br>"
+     res+="<tr><th>H01</th><th>Hindi</th><th>35</th><th>100</th><th>"+Hindi+"</th></tr><br>"
+     res+="<tr><th>P01</th><th>Physics</th><th>35</th><th>100</th><th>"+Physics+"</th></tr><br>"
+     res+="<tr><th>C01</th><th>Chemistry</th><th>35</th><th>100</th><th>"+Chemistry+"</th></tr><br>"
+     res+="<tr><th>M01</th><th>Math</th><th>35</th><th>100</th><th>"+Math+"</th></tr><br></table>"
+
+     res+="<table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+     res+="<tr><th>Percentage</th><th>"+per+"</th><th>Total Marks</th><th>"+Total+"</tr></table>"
+
+     res+="<table width='40%' cellpadding='10' cellspacing='0' border='1'>"
+     res+="<tr><th>Result</th><th>"+division+"</th></tr></table></center>"
+
+    Result.innerHTML=res
+}
+
+
+
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result</title>
+    <h1>Student Result</h1>
+</head>
+<body>
+<b>Student Roll No.</b><input type="text" id="rollno"><br><br>
+<b>Student Name:</b><input type="text" id="stun"><br><br>
+<b>Father Name:</b><input type="text" id="fn"><br><br>
+<b>Gender</b>
+<select id="Gender">
+    <option>-select-</option>
+    <option value="Miss">Female</option>
+    <option value="Master">Male</option>
+</select><br><br>
+<b>School Name:</b><input type="text" id="schn"><br><br>
+<b>English:</b><input type="text" id="en"><br><br>
+<b>Hindi:</b><input type="text" id="Hn"><br><br>
+<b>Physics:</b><input type="text" id="Pn"><br><br>
+<b>Chemistry:</b><input type="text"  id="cn"><br><br>
+<b>Math:</b><input type="text" id="mn"><br><br>
+<input type="button" value="submit" onclick="result()"><br><br>
+<div id="Result"></div>
+</body>
+</html>
